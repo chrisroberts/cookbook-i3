@@ -10,7 +10,7 @@ default[:i3][:config][:order] = [
   :cpu_temps,
   :basics
 ]
-default[:i3][:config][:display_items] => {
+default[:i3][:config][:display_items] = {
   :network => {
     'wireless wlan0' => {
       :format_up => 'W: (%quality at %essid, %bitrate) %ip',

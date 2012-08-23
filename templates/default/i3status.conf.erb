@@ -4,11 +4,11 @@ general {
   <% end -%>
 }
 
-<% @display_items.keys.each do |k| -%>
+<% @items.keys.each do |k| -%>
 order += "<%= k %>"
 <% end -%>
 
-<% @display_items.each do |k,v| -%>
+<% @items.each do |k,v| -%>
 <%= k %> {
   <% v.each_pair do |key,val| -%>
   <%= key %> = "<%= val %>"

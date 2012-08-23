@@ -1,15 +1,21 @@
+# encoding: utf-8
+default[:i3][:home] = nil
 default[:i3][:config][:general] = {
-  :output_format => nil,
-  :colors => true,
-  :interval => 5
+  :output_format => 'none',
+  :colors => false,
+  :interval => 1,
+  :color_good => "#00FF00",
+  :color_degraded => "#0000FF",
+  :color_bad => "#FF0000",
+  :color_separator => "#b096b7"
 }
 default[:i3][:config][:order] = [
   :network,
   :run_watches,
   :battery,
-  :cpu_temps,
   :basics
 ]
+default[:i3][:battery_int] = 0
 default[:i3][:config][:display_items] = {
   :network => {
     'wireless wlan0' => {
@@ -21,16 +27,7 @@ default[:i3][:config][:display_items] = {
       :format_down => 'E: down'
     }
   },
-  :battery => {
-    'battery 0' => {
-      :format => '%status %percentage %remaning %emptytime',
-      :path => '/sys/class/power_supply/BAT%d/uevent'
-    }
-  },
   :run_watches => {
-    'run_watch DHCP' => {
-      :pidfile => '/var/run/dhclient*.pid'
-    },
     'run_watch VPN' => {
       :pidfile => '/var/run/vpnc/pid'
     }
@@ -39,17 +36,11 @@ default[:i3][:config][:display_items] = {
     :load => {
       :format => '%5min'
     },
-    'disk "/"' => {
+    'disk /' => {
       :format => '%free free'
     },
     :time => {
       :format => '%Y-%m-%d %H:%M:%S'
-    }
-  },
-  :cpu_temps => {
-    'cpu_temperature 0' => {
-      :format => 'T: %degrees °C',
-      :path => '/sys/devices/platform/coretemp.0/temp1_input'
     }
   }
 }

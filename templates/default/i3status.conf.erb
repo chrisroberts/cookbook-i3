@@ -1,0 +1,17 @@
+general {
+  <% @general.each_pair do |k,v| -%>
+  <%= k %> = <%= v.inspect %>
+  <% end -%>
+}
+
+<% @display_items.keys.each do |k| -%>
+order += "<%= k %>"
+<% end -%>
+
+<% @display_items.each do |k,v| -%>
+<%= k %> {
+  <% v.each_pair do |key,val| -%>
+  <%= key %> = "<%= val %>"
+  <% end -%>
+}
+<% end -%>

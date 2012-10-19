@@ -40,7 +40,8 @@ if(node[:i3][:home])
     owner node[:i3][:user]
     group node[:i3][:group] || node[:i3][:user]
     variables(
-      :dzen => node[:i3][:config][:general][:output_format] == 'dzen2'
+      :dzen => node[:i3][:config][:general][:output_format] == 'dzen2',
+      :execs => node[:i3][:config][:execs]
     )
   end
 else

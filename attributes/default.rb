@@ -15,6 +15,7 @@ default[:i3][:config][:order] = [
   :battery,
   :basics
 ]
+default[:i3][:config][:execs] = []
 default[:i3][:battery_int] = 0
 default[:i3][:config][:display_items] = {
   :network => {
